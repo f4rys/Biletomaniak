@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "biletomaniak"
+  },
+  "targets": {
+    "biletomaniak": {
+      "hosting": {
+        "biletomaniak": [
+          "biletomaniak"
+        ]
+      }
+    }
+  }
+}
