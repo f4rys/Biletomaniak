@@ -14,7 +14,7 @@ export class ContactFormComponent {
 
   onSubmit() {
     this.firebase_service.addMessage(this.email, this.message).then(() => {
-    this.router.navigate(['/contact-success'])
+    this.router.navigate(['/success'])
     });
   }
 }

@@ -10,7 +10,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { DeleteBookingFormComponent } from './delete-booking-form/delete-booking-form.component';
 import { StartComponent } from './start/start.component';
-import { ContactSuccessComponent } from './contact-success/contact-success.component';
+import { SuccessComponent } from './success/success.component';
+import { ShowBookingComponent } from './show-booking/show-booking.component';
 
 const routes: Routes = [];
 
@@ -22,7 +23,8 @@ const routes: Routes = [];
     BookFormComponent,
     DeleteBookingFormComponent,
     StartComponent,
-    ContactSuccessComponent
+    SuccessComponent,
+    ShowBookingComponent
   ],
   imports: [
     BrowserModule,
