@@ -1,74 +1,79 @@
 <div class="row mt-4 d-flex justify-content-center">
-    <div class="col-4 mt-4 d-flex justify-content-center text-center flex-column">
+  <div class="col-4 mt-4 d-flex justify-content-center text-center flex-column">
 
-        <div class="d-flex justify-content-center flex-column">
-            <div class="h5">Dane osobowe</div>
-            <hr class="w-50 align-self-center">
-        </div>
+      <div class="d-flex justify-content-center flex-column">
+          <div class="h5">Dane osobowe</div>
+          <hr class="w-50 align-self-center">
+      </div>
 
-        <ol class="list-group mb-4">
+      <ol class="list-group mb-4">
 
-            <li class="list-group-item">
+          <li class="list-group-item">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Imię</div>
+              {{booking_data_dict.first_name}}
+            </div>
+          </li>
+
+          <li class="list-group-item">
               <div class="ms-2 me-auto">
-                <div class="fw-bold">Imię</div>
-                {{booking_data_dict.first_name}}
+                <div class="fw-bold">Nazwisko</div>
+                {{booking_data_dict.last_name}}
               </div>
-            </li>
+          </li>
 
-            <li class="list-group-item">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Nazwisko</div>
-                  {{booking_data_dict.last_name}}
-                </div>
-            </li>
+          <li class="list-group-item">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">E-mail</div>
+              {{booking_data_dict.email}}
+            </div>
+        </li>
 
-            <li class="list-group-item">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Numer telefonu</div>
-                  {{booking_data_dict.phone_number}}
-                </div>
-            </li>
+          <li class="list-group-item">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Numer telefonu</div>
+                {{booking_data_dict.phone_number}}
+              </div>
+          </li>
 
-            <li class="list-group-item">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">E-mail</div>
-                  {{booking_data_dict.email}}
-                </div>
-            </li>
+      </ol></div>
 
-        </ol>
+      <div class="col-4 h-100 mt-4 d-flex justify-content-center text-center flex-column">
 
-        <div class="d-flex justify-content-center flex-column">
-            <div class="h5">Wydarzenie</div>
-            <hr class="w-50 align-self-center">
-        </div>
+      <div class="d-flex justify-content-center flex-column">
+          <div class="h5">Wydarzenie</div>
+          <hr class="w-50 align-self-center">
+      </div>
 
-        <ol class="list-group mb-4">
+      <ol class="list-group mb-4">
 
-            <li class="list-group-item">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Nazwa</div>
-                  {{booking_data_dict.event_title}}
-                </div>
-            </li>
+          <li class="list-group-item">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Nazwa</div>
+                {{booking_data_dict.event_title}}
+              </div>
+          </li>
 
-            <li class="list-group-item">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Miasto</div>
-                  {{booking_data_dict.event_city}}
-                </div>
-            </li>
+          <li class="list-group-item">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Miasto</div>
+                {{booking_data_dict.event_city}}
+              </div>
+          </li>
 
-            <li class="list-group-item">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Data</div>
-                  {{booking_data_dict.event_date}}
-                </div>
-            </li>
+          <li class="list-group-item">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Data</div>
+                {{booking_data_dict.event_date}}
+              </div>
+          </li>
 
-        </ol>
+          <li class="list-group-item">
+            <div class="ms-2 me-auto">
+              <button (click)="delete()" type="submit" class="btn btn-outline-dark h-100 w-100">Usuń rezerwację</button>
+            </div>
+        </li>
 
-        <button (click)="delete()" type="submit" class="btn btn-primary">Usuń rezerwację</button>
-
+      </ol>
     </div>
-</div>
+  </div>
