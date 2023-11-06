@@ -44,26 +44,9 @@ export class FirebaseService {
       booking_data_dict["last_name"] = docSnap.get("last_name")
       booking_data_dict["phone_number"] = docSnap.get("phone_number")
       booking_data_dict["email"] = docSnap.get("email")
-
       booking_data_dict["event_title"] = eventSnap.get("title")
       booking_data_dict["event_city"] = eventSnap.get("city")
-
-      const event_date = eventSnap.get("date").toDate()
-
-      let day = event_date.getDate()
-      let month = event_date.getMonth() + 1
-      let year = event_date.getFullYear()
-      let hours = event_date.getHours()
-      let minutes = event_date.getMinutes()
-
-      day = this.formatDayTime(day)
-      month = this.formatDayTime(month)
-      hours = this.formatDayTime(hours)
-      minutes = this.formatDayTime(minutes)
-      
-      const event_date_formatted = day + '.' + month + '.' + year.toString() + ' ' + hours + ':' + minutes
-
-      booking_data_dict["event_date"] = event_date_formatted
+      booking_data_dict["event_date"] = this.formatDateTime(eventSnap.get("date"))
 
       return booking_data_dict;
       
@@ -75,26 +58,58 @@ export class FirebaseService {
 
   async getEvents() {
     const querySnapshot = await getDocs(collection(db, "events"));
+    let events: { id: string, description: string }[] = [];
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      let event: { id: string; description: string } = {
+        id: doc.id,
+        description: doc.get("title") + " (" + doc.get("city") + ", " + this.formatDateTime(doc.get("date")) + ")"
+      };
+      events.push(event);
     });
+    return events;
   }
 
-  async addBooking(first_name: string, last_name: string, ) {
-    const docRef = await addDoc(collection(db, "messages"), {
+  async addBooking(first_name: string, last_name: string, email: string, phone_number: string, event_id: string) {
+    const eventRef = doc(db, "events", event_id);
+    const docRef = await addDoc(collection(db, "bookings"), {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      phone_number: phone_number,
+      event: eventRef
     });
+    return docRef.id
   }
 
   async deleteBooking(id: string) {
     await deleteDoc(doc(db, "bookings", id));
   }
 
-  formatDayTime(number: any){
+  addLeadingZero(number: any){
     if(number < 10){
       return '0' + number.toString()
     }
     else{
       return number.toString()
     }
+  }
+
+  formatDateTime(date: any){
+    date = date.toDate()
+
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+
+    day = this.addLeadingZero(day)
+    month = this.addLeadingZero(month)
+    hours = this.addLeadingZero(hours)
+    minutes = this.addLeadingZero(minutes)
+    
+    const date_formatted = day + '.' + month + '.' + year.toString() + ' ' + hours + ':' + minutes
+
+    return date_formatted;
   }
 }

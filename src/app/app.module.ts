@@ -12,6 +12,7 @@ import { DeleteBookingFormComponent } from './delete-booking-form/delete-booking
 import { StartComponent } from './start/start.component';
 import { SuccessComponent } from './success/success.component';
 import { ShowBookingComponent } from './show-booking/show-booking.component';
+import { BookingSuccessComponent } from './booking-success/booking-success.component';
 
 const routes: Routes = [];
 
@@ -24,7 +25,8 @@ const routes: Routes = [];
     DeleteBookingFormComponent,
     StartComponent,
     SuccessComponent,
-    ShowBookingComponent
+    ShowBookingComponent,
+    BookingSuccessComponent
   ],
   imports: [
     BrowserModule,

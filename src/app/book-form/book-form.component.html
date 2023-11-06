@@ -1,15 +1,15 @@
-<form>
+<form (ngSubmit)="onSubmit()">
     <div class="row mt-4 d-flex justify-content-center">
         <div class="col-2 mt-4 d-flex justify-content-center text-center flex-column">
 
             <div class="mb-3">
                 <label for="inputFirstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="inputFirstName" aria-describedby="name">
+                <input name="inputFirstName" type="text" class="form-control" id="inputFirstName" aria-describedby="name" [(ngModel)]="first_name">
             </div>
 
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="email">
+                <input name="inputEmail" type="email" class="form-control" id="inputEmail" aria-describedby="email" [(ngModel)]="email">
             </div>
 
         </div>
@@ -18,12 +18,12 @@
 
             <div class="mb-3">
                 <label for="inputLastName" class="form-label">Nazwisko</label>
-                <input type="text" class="form-control" id="inputLastName" aria-describedby="lastName">
+                <input name="inputLastName" type="text" class="form-control" id="inputLastName" aria-describedby="lastName" [(ngModel)]="last_name">
             </div>
     
             <div class="mb-3">
                 <label for="inputPhoneNumber" class="form-label">Nr telefonu</label>
-                <input type="text" class="form-control" id="inputPhoneNumber" aria-describedby="phoneNumber">
+                <input name="inputPhoneNumber" type="text" class="form-control" id="inputPhoneNumber" aria-describedby="phoneNumber" [(ngModel)]="phone_number">
             </div>
 
         </div>
@@ -32,11 +32,10 @@
     <div class="row mt-4 d-flex justify-content-center">
         <div class="col-4 mt-4 d-flex justify-content-center text-center flex-column">
 
-            <select class="form-select mb-4" aria-label="Select event">
-                <option selected>Wydarzenie</option>
-                <option value="1">Koncert Pawła Mazura w Centrum Sztuki Mościce (Tarnów, 13.11.2023)</option>
-                <option value="2">Wystawa obrazów Zdzisława Beksińskiego w Galerii Kazimierz (Kraków, 11.12.2023)</option>
-                <option value="3">Noc filmowa "Ponadczasowe horrory" w kinie Kijów (Kraków, 03.01.2024)</option>
+            <select name="inputEventID" class="form-select mb-4" aria-label="Select event" [(ngModel)]="event_id">
+                <option selected disabled>Wydarzenie</option>
+                <option *ngFor="let event of events" value="{{event.id}}">{{event.description}}</option>
+
             </select>
 
             <div class="form-check form-switch mb-4">

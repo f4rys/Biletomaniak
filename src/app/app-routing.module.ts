@@ -7,10 +7,12 @@ import { DeleteBookingFormComponent } from './delete-booking-form/delete-booking
 import { StartComponent } from './start/start.component';
 import { SuccessComponent } from './success/success.component';
 import { ShowBookingComponent } from './show-booking/show-booking.component';
+import { BookingSuccessComponent } from './booking-success/booking-success.component';
 
 const routes: Routes = [
   { path: '', component: StartComponent },
   { path: 'show-booking', component: ShowBookingComponent },
+  { path: 'booking-success', component: BookingSuccessComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'book-form-component', component: BookFormComponent },
   { path: 'contact-form-component', component: ContactFormComponent },
