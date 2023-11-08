@@ -19,7 +19,6 @@ export class BookFormComponent {
   email!: string;
   event_id!: string;
   
-
   async ngOnInit() {
     this.events = await this.firebase_service.getEvents()
     console.log(this.events)
