@@ -9,7 +9,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .card-img-top{
-    height:200px!important;
+    height:100px!important;
     width: 100% !important;
     object-fit: cover!important;
 }
@@ -35,4 +35,49 @@ input:focus, textarea:focus, select:focus{
     background-color: #8000ff!important;
     border-color: #8000ff!important;
     box-shadow: inset 0 0 0 1px #8000ff;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.navbar, form{
+    animation: fadeDown 1s ease-in-out forwards;
+}
+
+.start, .cards{
+    animation: fadeUp 1s ease-in-out forwards;
+}
+
+.success{
+    animation: fadeIn 1s ease-in-out forwards;
 }
