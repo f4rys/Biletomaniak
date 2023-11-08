@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +13,6 @@ import { SuccessComponent } from './success/success.component';
 import { ShowBookingComponent } from './show-booking/show-booking.component';
 import { BookingSuccessComponent } from './booking-success/booking-success.component';
 
-const routes: Routes = [];
 
 @NgModule({
   declarations: [

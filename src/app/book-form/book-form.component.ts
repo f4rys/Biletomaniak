@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 import { Router } from "@angular/router";
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-form',
