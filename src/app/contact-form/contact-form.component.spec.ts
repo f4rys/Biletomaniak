@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { ContactFormComponent } from './contact-form.component';
 
 describe('ContactFormComponent', () => {
@@ -8,6 +8,7 @@ describe('ContactFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ContactFormComponent]
     });
     fixture = TestBed.createComponent(ContactFormComponent);
@@ -19,3 +20,4 @@ describe('ContactFormComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

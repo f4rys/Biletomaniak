@@ -14,11 +14,13 @@ export class ShowBookingComponent implements OnInit {
   constructor(private firebase_service: FirebaseService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-      this.activatedRoute.queryParams.subscribe((data) => {
-      this.booking_data_dict = data;
-      });
+    this.activatedRoute.queryParamMap.subscribe((params) => { 
+        const bookingId = params.get('booking_id');
+        if (bookingId) {
+            this.booking_data_dict = { id: bookingId };
+        }
+    });
   }
-
   async delete(){
     await this.firebase_service.deleteBooking(this.booking_data_dict.id).then(() => {
     this.router.navigate(['/success'])
