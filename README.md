@@ -1,5 +1,5 @@
 
-<div><img style="margin:10" src="./src/assets/img/logo.png" width=100>
+<div><img style="margin:10" src="./src/assets/img/logo1.png" width=100>
 
 # Biletomaniak
 
