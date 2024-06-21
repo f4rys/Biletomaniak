@@ -9,22 +9,32 @@ import { Router } from "@angular/router";
   styleUrls: ['./show-booking.component.scss']
 })
 export class ShowBookingComponent implements OnInit {
-
-  booking_data_dict: any;
+  id!: any;
+  first_name!: string | null;
+  last_name!: string | null;
+  phone_number!: string | null;
+  email!: string | null;
+  event_title!: string | null;
+  event_city!: string | null;
+  event_date!: string | null;
   constructor(private firebase_service: FirebaseService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe((params) => { 
-        const bookingId = params.get('booking_id');
-        if (bookingId) {
-            this.booking_data_dict = { id: bookingId };
-        }
+        this.id = params.get('id');
+        this.first_name = params.get('first_name');
+        this.last_name = params.get('last_name');
+        this.phone_number = params.get('phone_number');
+        this.email = params.get('email');
+        this.event_title = params.get('event_title');
+        this.event_city = params.get('event_city');
+        this.event_date = params.get('event_date');
     });
   }
   async delete(){
-    await this.firebase_service.deleteBooking(this.booking_data_dict.id).then(() => {
+    await this.firebase_service.deleteBooking(this.id).then(() => {
     this.router.navigate(['/success'])
     });
   }
-  
+
 }
