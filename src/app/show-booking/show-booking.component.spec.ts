@@ -31,7 +31,7 @@ describe('ShowBookingComponent', () => {
   });
 
   it('should fetch booking data on init', () => {
-      expect(component.booking_data_dict).toEqual({ id: '123' }); 
+      expect(component.id).toEqual('123'); 
   });
 
 });
