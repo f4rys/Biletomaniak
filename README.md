@@ -22,11 +22,38 @@ This project is for learning purposes and contains Firebase secrets (like API ke
 
 ![screenshot](screenshot.jpg)
 
+## Overview
+
+- To create a reservation, go to **Rezerwuj**, fill in the form, select an event, check the tick, and click **Rezerwuj**. The reservation will be created in the database and the randomly generated ID will be shown. Copy it by clicking the **Kopiuj** button, because the ID will be needed for the cancellation.
+- To cancel a reservation, go to **Odwołaj**, enter the ID and click **Odwołaj**. The data about the booking will be shown in a table to verify if the right booking has been selected, then click **Usuń rezerwację**. The booking will be deleted from the database.
+- To send a message, go to **Kontakt**, fill in the form and click **Wyślij**. The message will be added to the database.
+
 ## Tech Stack
 
-* **Frontend:** Angular, TypeScript, HTML, Sass
-* **Backend:** Firebase
-* **Styling:** Bootstrap
+* **Frontend:** Angular 18 (Typescript), Bootstrap, Sass
+* **Backend:** Firebase (Firestore, Hosting)
+
+## Database structure
+
+```
+Collections
+│
+└───bookings
+│   └───email (string)
+│   └───event (reference)
+│   └───first_name (string)
+│   └───last_name (string)
+│   └───phone_number (string)
+│   
+└───events
+│   └───city (string)
+│   └───date (timestamp)
+│   └───title (string)
+│
+└───messages
+    └───email (string)
+    └───message (string)
+```
 
 ## Run locally
 
